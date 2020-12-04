@@ -1,0 +1,9 @@
+- hosts: ovirt_servers
+  become: true
+  tasks:
+    - name: allow access to imageio-d
+      firewalld:
+        zone: public
+        port: 54322/tcp
+        permanent: true
+        state: enabled
